@@ -236,7 +236,7 @@ namespace Mosa.Demo.CoolWorld.x86
 					}
 				}
 			}
-
+			var ps2Controller = (PS2Controller)DeviceService.GetDevices("PS/2Controller")[0].DeviceDriver;
 			// Get StandardKeyboard
 			var keyboards = DeviceService.GetDevices("StandardKeyboard");
 			if (keyboards.Count == 0)

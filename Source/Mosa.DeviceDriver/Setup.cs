@@ -24,6 +24,17 @@ namespace Mosa.DeviceDriver
 
 				new ISADeviceDriverRegistryEntry()
 				{
+					Name = "PS/2Controller",
+					Platforms = PlatformArchitecture.X86AndX64,
+					AutoLoad = true,
+					BasePort = 0x60,
+					PortRange = 1,
+					AltBasePort = 0x64,
+					AltPortRange = 1,
+					Factory = delegate { return new ISA.PS2Controller(); }
+				},
+				new ISADeviceDriverRegistryEntry()
+				{
 					Name = "StandardKeyboard",
 					Platforms = PlatformArchitecture.X86AndX64,
 					AutoLoad = true,
@@ -34,7 +45,6 @@ namespace Mosa.DeviceDriver
 					IRQ = 1,
 					Factory = delegate { return new ISA.StandardKeyboard(); }
 				},
-
 				new ISADeviceDriverRegistryEntry()
 				{
 					Name = "StandardMouse",

@@ -372,7 +372,7 @@ namespace Mosa.DeviceDriver.ISA
 
 			for (var i = 0; i < (xsdt ? 16 : 8); i++)
 			{
-				var h = (ACPISDTHeader*)(xsdt ? XSDT->PointerToOtherSDT[i] : RSDT->PointerToOtherSDT[i]);
+				var h = (ACPISDTHeader*)HAL.GetPhysicalMemory((Pointer)(xsdt ? XSDT->PointerToOtherSDT[i] : RSDT->PointerToOtherSDT[i]), 0xfff).Address;
 
 				if (h != null &&
 					h->Signature[0] == signature[0] &&
